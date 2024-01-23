@@ -1,7 +1,10 @@
 {
     "name": "BetterServices.Runtime",
     "rootNamespace": "Better.Services",
-    "references": [],
+    "references": [
+        "GUID:441b78e90a9cf724ab41c6eed8c0b93d",
+        "GUID:a59e3daedde9ca94bba45364d4ead25f"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
