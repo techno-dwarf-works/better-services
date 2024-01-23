@@ -5,11 +5,11 @@
   "unity": "2021.3",
   "description": " ",
   "dependencies": {
-    "com.uurha.somepackage": "0.1.0"
+    "com.uurha.bettervalidation": "1.0.55"
   },
   "author": {
-    "name": "Arcueid D'athemon",
-    "url": "https://github.com/uurha"
+    "name": "Techno Dwarf Works",
+    "url": "https://github.com/techno-dwarf-works"
   },
   "changelogUrl": "https://github.com/techno-dwarf-works/better-services",
   "documentationUrl": "https://github.com/techno-dwarf-works/better-services/tree/main#readme",
@@ -19,7 +19,7 @@
     "better",
     "services",
     "reference managment",
-    "pattern",
+    "pattern"
   ],
   "samples": [
     {
