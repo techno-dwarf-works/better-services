@@ -1,8 +1,8 @@
 {
-    "name": "{project_name}.Editor",
-    "rootNamespace": "",
+    "name": "BetterServices.Editor",
+    "rootNamespace": "Better.Services",
     "references": [
-        "GUID:443314a5a4e67c14a88ae223776b6554"
+        "GUID:1c5574afb40e5fe4ca9e9c156009297b"
     ],
     "includePlatforms": [
         "Editor"
