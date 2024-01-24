@@ -7,14 +7,15 @@ namespace Better.Services.Runtime
 {
     public abstract class MonoService : MonoBehaviour, IService
     {
-        private CancellationTokenSource _aliveTokenSource;
+        // TODO: Add version dependency
+        private CancellationTokenSource _destroyCancellationToken;
 
         public bool Initialized { get; private set; }
-        private CancellationToken AliveToken => _aliveTokenSource.Token;
+        protected CancellationToken DestroyCancellationToken => _destroyCancellationToken.Token;
 
         protected virtual void Awake()
         {
-            _aliveTokenSource = new();
+            _destroyCancellationToken = new();
         }
 
         async Task IService.InitializeAsync(CancellationToken cancellationToken)
@@ -27,9 +28,9 @@ namespace Better.Services.Runtime
                 return;
             }
 
-            var linkedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(AliveToken, cancellationToken);
+            var linkedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(DestroyCancellationToken, cancellationToken);
             cancellationToken = linkedTokenSource.Token;
-            
+
             await OnInitializeAsync(cancellationToken);
             if (cancellationToken.IsCancellationRequested)
             {
@@ -48,10 +49,10 @@ namespace Better.Services.Runtime
             }
 
             Debug.Log($"[{GetType().Name}] {nameof(IService.PostInitializeAsync)}");
-            
-            var linkedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(AliveToken, cancellationToken);
+
+            var linkedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(DestroyCancellationToken, cancellationToken);
             cancellationToken = linkedTokenSource.Token;
-            
+
             return OnPostInitializeAsync(cancellationToken);
         }
 
@@ -60,7 +61,7 @@ namespace Better.Services.Runtime
 
         protected virtual void OnDestroy()
         {
-            _aliveTokenSource?.Cancel();
+            _destroyCancellationToken?.Cancel();
         }
     }
 }
