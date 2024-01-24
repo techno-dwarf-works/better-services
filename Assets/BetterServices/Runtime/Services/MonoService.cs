@@ -1,9 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Better.Services.Interfaces;
+using Better.Services.Runtime.Interfaces;
 using UnityEngine;
 
-namespace Better.Services
+namespace Better.Services.Runtime
 {
     public abstract class MonoService : MonoBehaviour, IService
     {

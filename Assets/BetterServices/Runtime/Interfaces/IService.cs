@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Better.Services.Interfaces
+namespace Better.Services.Runtime.Interfaces
 {
     public interface IService
     {

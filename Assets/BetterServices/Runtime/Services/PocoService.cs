@@ -1,11 +1,11 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Better.Services.Interfaces;
+using Better.Services.Runtime.Interfaces;
 using Better.Validation.Runtime.Attributes;
 using UnityEngine;
 
-namespace Better.Services
+namespace Better.Services.Runtime
 {
     [Serializable]
     public abstract class PocoService : IService
