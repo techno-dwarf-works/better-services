@@ -12,6 +12,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.uurha.bettervalidation",
+            "expression": "1.0.4",
+            "define": "BETTER_VALIDATION"
+        }
+    ],
     "noEngineReferences": false
 }

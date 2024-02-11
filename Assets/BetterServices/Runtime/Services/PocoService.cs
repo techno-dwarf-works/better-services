@@ -2,8 +2,10 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Better.Services.Runtime.Interfaces;
-using Better.Validation.Runtime.Attributes;
 using UnityEngine;
+#if BETTER_VALIDATION
+using Better.Validation.Runtime.Attributes;
+#endif
 
 namespace Better.Services.Runtime
 {
@@ -46,7 +48,10 @@ namespace Better.Services.Runtime
     [Serializable]
     public abstract class PocoService<TSettings> : PocoService where TSettings : ScriptableObject
     {
-        [NotNull] [SerializeField] private TSettings _settings;
+#if BETTER_VALIDATION
+        [NotNull] 
+#endif
+        [SerializeField] private TSettings _settings;
 
         protected TSettings Settings => _settings;
 
