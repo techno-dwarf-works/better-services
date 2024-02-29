@@ -1,6 +1,6 @@
 {
     "name": "BetterServices.Runtime",
-    "rootNamespace": "Better.Services",
+    "rootNamespace": "Better.Services.Runtime",
     "references": [
         "GUID:441b78e90a9cf724ab41c6eed8c0b93d",
         "GUID:a59e3daedde9ca94bba45364d4ead25f"
@@ -15,7 +15,7 @@
     "versionDefines": [
         {
             "name": "com.uurha.bettervalidation",
-            "expression": "1.0.4",
+            "expression": "1.0.61",
             "define": "BETTER_VALIDATION"
         }
     ],

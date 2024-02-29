@@ -7,6 +7,10 @@ using UnityEngine;
 using Better.Validation.Runtime.Attributes;
 #endif
 
+#if BETTER_VALIDATION
+using Better.Validation.Runtime.Attributes;
+#endif
+
 namespace Better.Services.Runtime
 {
     [Serializable]
@@ -16,28 +20,27 @@ namespace Better.Services.Runtime
 
         async Task IService.InitializeAsync(CancellationToken cancellationToken)
         {
-            Debug.Log($"[{GetType().Name}] {nameof(IService.InitializeAsync)}");
-
             if (Initialized)
             {
-                Debug.LogError($"[{GetType().Name}] {nameof(IService.InitializeAsync)}: already initialized");
+                Debug.LogError("Service already initialized");
                 return;
             }
 
             Initialized = true;
             await OnInitializeAsync(cancellationToken);
             Initialized = !cancellationToken.IsCancellationRequested;
+
+            Debug.Log("Service initialized");
         }
 
         Task IService.PostInitializeAsync(CancellationToken cancellationToken)
         {
             if (!Initialized)
             {
-                Debug.LogError($"[{GetType().Name}] {nameof(IService.PostInitializeAsync)}: not initialized");
+                Debug.LogError("Service must be initialized");
                 return Task.CompletedTask;
             }
 
-            Debug.Log($"[{GetType().Name}] {nameof(IService.PostInitializeAsync)}");
             return OnPostInitializeAsync(cancellationToken);
         }
 
@@ -49,7 +52,7 @@ namespace Better.Services.Runtime
     public abstract class PocoService<TSettings> : PocoService where TSettings : ScriptableObject
     {
 #if BETTER_VALIDATION
-        [NotNull] 
+        [NotNull]
 #endif
         [SerializeField] private TSettings _settings;
 
@@ -59,7 +62,8 @@ namespace Better.Services.Runtime
         {
             if (Settings == null)
             {
-                throw new NullReferenceException($"[{GetType().Name}] {nameof(OnInitializeAsync)}: {nameof(Settings)} cannot be null");
+                var exception = new NullReferenceException(nameof(Settings));
+                Debug.LogException(exception);
             }
 
             return Task.CompletedTask;

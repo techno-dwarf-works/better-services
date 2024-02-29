@@ -20,11 +20,9 @@ namespace Better.Services.Runtime
 
         async Task IService.InitializeAsync(CancellationToken cancellationToken)
         {
-            Debug.Log($"[{GetType().Name}] {nameof(IService.InitializeAsync)}");
-
             if (Initialized)
             {
-                Debug.LogError($"[{GetType().Name}] {nameof(IService.InitializeAsync)}: already initialized");
+                Debug.LogError("Service already initialized");
                 return;
             }
 
@@ -38,17 +36,16 @@ namespace Better.Services.Runtime
             }
 
             Initialized = true;
+            Debug.Log("Service initialized");
         }
 
         Task IService.PostInitializeAsync(CancellationToken cancellationToken)
         {
             if (!Initialized)
             {
-                Debug.LogError($"[{GetType().Name}] {nameof(IService.PostInitializeAsync)}: not initialized");
+                Debug.LogError("Service must be initialized");
                 return Task.CompletedTask;
             }
-
-            Debug.Log($"[{GetType().Name}] {nameof(IService.PostInitializeAsync)}");
 
             var linkedTokenSource = CancellationTokenSource.CreateLinkedTokenSource(DestroyCancellationToken, cancellationToken);
             cancellationToken = linkedTokenSource.Token;
