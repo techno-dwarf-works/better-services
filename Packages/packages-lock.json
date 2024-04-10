@@ -1,5 +1,42 @@
 {
   "dependencies": {
+    "com.tdw.better.commons": {
+      "version": "0.0.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.tdw.better.internal.core": "0.0.2"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.tdw.better.internal.core": {
+      "version": "0.0.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
+    },
+    "com.tdw.better.projectsettings": {
+      "version": "0.1.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.tdw.better.singletons": "0.1.0",
+        "com.tdw.better.internal.core": "0.0.2",
+        "com.tdw.better.commons": "0.0.2"
+      },
+      "url": "https://package.openupm.com"
+    },
+    "com.tdw.better.singletons": {
+      "version": "0.1.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {
+        "com.tdw.better.commons": "0.0.2",
+        "com.tdw.better.internal.core": "0.0.2"
+      },
+      "url": "https://package.openupm.com"
+    },
     "com.unity.collab-proxy": {
       "version": "2.0.1",
       "depth": 0,
@@ -134,6 +171,17 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.uurha.bettervalidation": {
+      "version": "1.6.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.tdw.better.internal.core": "0.0.2",
+        "com.tdw.better.projectsettings": "0.1.1",
+        "com.tdw.better.commons": "0.0.2"
+      },
+      "url": "https://package.openupm.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
