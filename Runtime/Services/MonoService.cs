@@ -1,3 +1,4 @@
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Better.Services.Runtime.Interfaces;
@@ -11,11 +12,32 @@ namespace Better.Services.Runtime
         private CancellationTokenSource _destroyCancellationToken;
 
         public bool Initialized { get; private set; }
-        protected CancellationToken DestroyCancellationToken => _destroyCancellationToken.Token;
+        
+        protected CancellationToken DestroyCancellationToken
+        {
+            get
+            {
+                if (_destroyCancellationToken == null)
+                {
+                    _destroyCancellationToken = new CancellationTokenSource();
+                }
+                return _destroyCancellationToken.Token;
+            }
+        }
 
         protected virtual void Awake()
         {
-            _destroyCancellationToken = new();
+            
+        }
+
+        protected virtual void OnEnable()
+        {
+            
+        }
+
+        protected virtual void Start()
+        {
+            
         }
 
         async Task IService.InitializeAsync(CancellationToken cancellationToken)
@@ -55,6 +77,11 @@ namespace Better.Services.Runtime
 
         protected abstract Task OnInitializeAsync(CancellationToken cancellationToken);
         protected abstract Task OnPostInitializeAsync(CancellationToken cancellationToken);
+
+        protected virtual void OnDisable()
+        {
+            
+        }
 
         protected virtual void OnDestroy()
         {
