@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.tdw.better.attributes": "0.0.1",
     "com.tdw.better.internal.core": "0.0.2",
     "com.unity.collab-proxy": "2.0.1",
     "com.unity.feature.development": "1.0.1",
