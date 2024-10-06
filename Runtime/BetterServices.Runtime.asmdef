@@ -2,6 +2,7 @@
     "name": "BetterServices.Runtime",
     "rootNamespace": "Better.Services.Runtime",
     "references": [
+        "GUID:01df13aca8d01e24a911bcc3e8277031",
         "GUID:8bd4b41f8da90144d9006c4d926c9679",
         "GUID:35101f455c979e94c9a0a4793484b7fd"
     ],
@@ -15,7 +16,7 @@
     "versionDefines": [
         {
             "name": "com.tdw.better.attributes",
-            "expression": "0.0.1",
+            "expression": "0.0.2",
             "define": "BETTER_ATTRIBUTES"
         }
     ],
