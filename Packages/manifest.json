@@ -47,7 +47,6 @@
       "name": "Better Plugins",
       "url": "https://package.openupm.com",
       "scopes": [
-        "com.uurha",
         "com.tdw"
       ]
     }
